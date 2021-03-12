@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>ideiasportsgroup_ear</artifactId>
+	<packaging>ear</packaging>
+	
+	<parent>
+		<artifactId>ideiasportsgroup_pom</artifactId>
+		<groupId>br.com.ideiasportsgroup</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>br.com.ideiasportsgroup</groupId>
+			<artifactId>ideiasportsgroup_web</artifactId>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>br.com.ideiasportsgroup</groupId>
+			<artifactId>ideiasportsgroup_ejb</artifactId>
+			<type>ejb</type>
+		</dependency>
+	</dependencies>
+
+	<build>
+	<!-- <finalName>${project.artifactId}</finalName> -->
+		<plugins>
+			<plugin>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>3.0.2</version>
+				<configuration>
+					<earSourceDirectory>EarContent</earSourceDirectory>
+					<version>8</version>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<outputFileNameMapping>@{artifactId}@-@{version}@.@{extension}@</outputFileNameMapping>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
