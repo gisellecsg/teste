@@ -12,7 +12,6 @@
 	</parent>
 
 	<build>
-	<!-- <finalName>${project.artifactId}</finalName> -->
 		<sourceDirectory>ejbModule</sourceDirectory>
 		<resources>
 			<resource>
@@ -25,9 +24,9 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-ejb-plugin</artifactId>
-				<version>3.0.1</version>
+				<version>${maven-ejb-plugin}</version>
 				<configuration>
-					<ejbVersion>3.2</ejbVersion>
+					<ejbVersion>${ejbVersion}</ejbVersion>
 				</configuration>
 			</plugin>
 		</plugins>

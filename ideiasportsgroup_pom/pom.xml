@@ -14,9 +14,15 @@
 	</modules>
 
 	<properties>
+		<!-- COMPILAÇÂO -->
 		<version.compiler.plugin>3.8.1</version.compiler.plugin>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<version.resources.plugin>3.0.2</version.resources.plugin>
+		<!-- EJB -->
+		<maven-ejb-plugin>3.0.1</maven-ejb-plugin>
+		<ejbVersion>3.2</ejbVersion>
 	</properties>
 
 	<dependencyManagement>
@@ -45,6 +51,14 @@
 					<configuration>
 						<source>${maven.compiler.source}</source>
 						<target>${maven.compiler.target}</target>
+						<encoding>${project.build.sourceEncoding}</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${version.resources.plugin}</version>
+					<configuration>
+						<encoding>${project.build.sourceEncoding}</encoding>
 					</configuration>
 				</plugin>
 			</plugins>
