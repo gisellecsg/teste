@@ -1,0 +1,62 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>ideiasportsgroup_ejb</artifactId>
+	<packaging>ejb</packaging>
+
+	<parent>
+		<artifactId>ideiasportsgroup_pom</artifactId>
+		<groupId>br.com.ideiasportsgroup</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<dependencies>
+		<!-- <dependency> <groupId>org.jboss.spec.javax.ejb</groupId> <artifactId>jboss-ejb-api_3.2_spec</artifactId> 
+			<scope>provided</scope> </dependency> -->
+		<!-- <dependency> <groupId>jakarta.ejb</groupId> <artifactId>jakarta.ejb-api</artifactId> 
+			</dependency> -->
+		<!-- <dependency> <groupId>org.jboss.spec.javax.ejb</groupId> <artifactId>jboss-ejb-api_3.2_spec</artifactId> 
+			<scope>provided</scope> </dependency> <dependency> <groupId>org.jboss.spec.javax.xml.bind</groupId> 
+			<artifactId>jboss-jaxb-api_2.3_spec</artifactId> <scope>provided</scope> 
+			</dependency> -->
+		<dependency>
+			<groupId>jakarta.platform</groupId>
+			<artifactId>jakarta.jakartaee-api</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<!-- <resources> <resource> <directory>src/main/config</directory> <includes> 
+			<include>**/*.xml</include> <include>**/*.properties</include> </includes> 
+			</resource> <resource> <directory>src/main/resources</directory> <includes> 
+			<include>**/*.properties</include> </includes> </resource> </resources> -->
+		<resources>
+			<resource>
+				<directory>src/main/config</directory>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.properties</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.properties</include>
+				</includes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-ejb-plugin</artifactId>
+				<version>${maven.ejb.plugin}</version>
+				<configuration>
+					<ejbVersion>${ejb.version}</ejbVersion>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
