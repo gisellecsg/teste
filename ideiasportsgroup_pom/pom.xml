@@ -8,10 +8,10 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>ideiasportsgroup_ejb</module>
-		<module>ideiasportsgroup_rest</module>
-		<module>ideiasportsgroup_web</module>
-		<module>ideiasportsgroup_ear</module>
+		<module>../ideiasportsgroup_ejb</module>
+		<module>../ideiasportsgroup_rest</module>
+		<module>../ideiasportsgroup_web</module>
+		<module>../ideiasportsgroup_ear</module>
 	</modules>
 
 	<properties>
