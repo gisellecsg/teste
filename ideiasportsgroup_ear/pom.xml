@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>ideiasportsgroup_ear</artifactId>
 	<packaging>ear</packaging>
-	
+
 	<parent>
 		<artifactId>ideiasportsgroup_pom</artifactId>
 		<groupId>br.com.ideiasportsgroup</groupId>
@@ -21,6 +21,11 @@
 			<groupId>br.com.ideiasportsgroup</groupId>
 			<artifactId>ideiasportsgroup_ejb</artifactId>
 			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>br.com.ideiasportsgroup</groupId>
+			<artifactId>ideiasportsgroup_rest</artifactId>
+			<type>jar</type>
 		</dependency>
 	</dependencies>
 

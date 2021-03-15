@@ -24,9 +24,9 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-ejb-plugin</artifactId>
-				<version>${maven-ejb-plugin}</version>
+				<version>${maven.ejb.plugin}</version>
 				<configuration>
-					<ejbVersion>${ejbVersion}</ejbVersion>
+					<ejbVersion>${ejb.version}</ejbVersion>
 				</configuration>
 			</plugin>
 		</plugins>

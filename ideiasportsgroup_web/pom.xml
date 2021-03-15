@@ -11,6 +11,21 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
+	<dependencies>
+		<dependency>
+			<groupId>br.com.ideiasportsgroup</groupId>
+			<artifactId>ideiasportsgroup_ejb</artifactId>
+			<type>ejb</type>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>br.com.ideiasportsgroup</groupId>
+			<artifactId>ideiasportsgroup_rest</artifactId>
+			<type>jar</type>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>

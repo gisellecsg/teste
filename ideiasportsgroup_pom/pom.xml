@@ -9,6 +9,7 @@
 
 	<modules>
 		<module>ideiasportsgroup_ejb</module>
+		<module>ideiasportsgroup_rest</module>
 		<module>ideiasportsgroup_web</module>
 		<module>ideiasportsgroup_ear</module>
 	</modules>
@@ -21,8 +22,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<version.resources.plugin>3.0.2</version.resources.plugin>
 		<!-- EJB -->
-		<maven-ejb-plugin>3.0.1</maven-ejb-plugin>
-		<ejbVersion>3.2</ejbVersion>
+		<maven.ejb.plugin>3.0.1</maven.ejb.plugin>
+		<ejb.version>3.2</ejb.version>
 	</properties>
 
 	<dependencyManagement>
@@ -32,6 +33,12 @@
 				<artifactId>ideiasportsgroup_ejb</artifactId>
 				<version>${project.version}</version>
 				<type>ejb</type>
+			</dependency>
+			<dependency>
+				<groupId>br.com.ideiasportsgroup</groupId>
+				<artifactId>ideiasportsgroup_rest</artifactId>
+				<version>${project.version}</version>
+				<type>jar</type>
 			</dependency>
 			<dependency>
 				<groupId>br.com.ideiasportsgroup</groupId>
