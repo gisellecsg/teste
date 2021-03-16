@@ -26,9 +26,9 @@
 		<ejb.version>3.2</ejb.version>
 		<!-- WILDFLY -->
 		<wildfly.version>22.0.1.Final</wildfly.version>
-		<!-- WEB -->
+		<!-- WEB JAKARTA -->
 		<failOnMissingWebXml>false</failOnMissingWebXml>
-
+		<!-- JAKARTA -->
 		<jakartaee-api.version>8.0.0</jakartaee-api.version>
 	</properties>
 
@@ -58,13 +58,9 @@
 				</dependency> -->
 			<!-- <dependency> <groupId>jakarta.platform</groupId> <artifactId>jakarta.jakartaee-bom</artifactId> 
 				<version>8.0.0</version> <type>pom</type> </dependency> -->
-<!-- 			<dependency>
-				<groupId>org.wildfly.bom</groupId>
-				<artifactId>wildfly-jakartaee8-with-tools</artifactId>
-				<version>${wildfly.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency> -->
+			<!-- <dependency> <groupId>org.wildfly.bom</groupId> <artifactId>wildfly-jakartaee8-with-tools</artifactId> 
+				<version>${wildfly.version}</version> <type>pom</type> <scope>import</scope> 
+				</dependency> -->
 			<dependency>
 				<groupId>jakarta.platform</groupId>
 				<artifactId>jakarta.jakartaee-api</artifactId>

@@ -37,46 +37,11 @@
 				<artifactId>maven-ear-plugin</artifactId>
 				<version>3.0.2</version>
 				<configuration>
-					<!-- <earSourceDirectory>EarContent</earSourceDirectory> -->
 					<version>8</version>
 					<finalName>${project.artifactId}-${project.version}</finalName>
-					
-					<!-- <generateApplicationXml>true</generateApplicationXml> -->
-					<!-- <outputFileNameMapping>@{artifactId}@@{dashClassifier?}@.@{extension}@</outputFileNameMapping> -->	<!-- <outputFileNameMapping>@{artifactId}@-@{version}@.@{extension}@</outputFileNameMapping> -->
-					<!-- <modules> -->
-					<!-- <ejbModule> -->
-					<!-- <groupId>br.com.ideiasportsgroup</groupId> -->
-					<!-- <artifactId>ideiasportsgroup_ejb</artifactId> -->
-					<!-- </ejbModule> -->
-					<!-- <ejbModule> -->
-					<!-- <groupId>br.com.ideiasportsgroup</groupId> -->
-					<!-- <artifactId>ideiasportsgroup_rest</artifactId> -->
-					<!-- </ejbModule> -->
-					<!-- <webModule> -->
-					<!-- <groupId>br.com.ideiasportsgroup</groupId> -->
-					<!-- <artifactId>ideiasportsgroup_web</artifactId> -->
-					<!-- </webModule> -->
-					<!-- </modules> -->
-					
-					<modules>
-						<ejbModule>
-							<groupId>${project.groupId}</groupId>
-							<artifactId>ideiasportsgroup_ejb</artifactId>
-							<!-- <bundleFileName>seja-ejb.jar</bundleFileName> -->
-						</ejbModule>
-						<ejbModule>
-							<groupId>${project.groupId}</groupId>
-							<artifactId>ideiasportsgroup_rest</artifactId>
-							<!-- <bundleFileName>seja-webservice.jar</bundleFileName> -->
-						</ejbModule>
-						<webModule>
-							<groupId>${project.groupId}</groupId>
-							<artifactId>ideiasportsgroup_web</artifactId>
-							<!-- <bundleFileName>seja-web.war</bundleFileName> -->
-						</webModule>
-					</modules>
-					<generateApplicationXml>true</generateApplicationXml>
-					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<generateApplicationXml>false</generateApplicationXml>
+<!-- 					<applicationXml>${project.build.directory}/application.xml</applicationXml>
+ -->					<defaultLibBundleDir>lib</defaultLibBundleDir>
 				</configuration>
 			</plugin>
 		</plugins>
