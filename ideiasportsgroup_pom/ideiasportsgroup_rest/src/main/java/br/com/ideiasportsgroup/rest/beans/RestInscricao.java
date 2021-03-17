@@ -1,5 +1,6 @@
 package br.com.ideiasportsgroup.rest.beans;
 
+import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -8,14 +9,16 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.ResponseBuilder;
-import javax.ws.rs.core.Response.Status;
 
 import br.com.ideiasportsgroup.rest.application.MediaTypeConstantes;
+import br.com.ideiasportsgroup.rest.application.TesteLeoLocal;
 
 @Path("inscricao")
 public class RestInscricao implements IRestInscricao {
 
+	@EJB
+	TesteLeoLocal teste;
+	
 	@GET
 	@Path("/inscrever/{nome}")
 	@Produces(MediaTypeConstantes.MEDIA_TYPE_TEXT_PLAIN_CHARSETDEFAULT)
@@ -27,7 +30,7 @@ public class RestInscricao implements IRestInscricao {
 	@Path("/inscrever")
 	@Produces(MediaTypeConstantes.MEDIA_TYPE_TEXT_PLAIN_CHARSETDEFAULT)
 	public String getInscricao() {
-		return new String("getInscricao");
+		return new String("testeLeo");
 	}
 
 	@POST

@@ -39,9 +39,9 @@
 				<configuration>
 					<version>8</version>
 					<finalName>${project.artifactId}-${project.version}</finalName>
-					<generateApplicationXml>false</generateApplicationXml>
-<!-- 					<applicationXml>${project.build.directory}/application.xml</applicationXml>
- -->					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<generateApplicationXml>true</generateApplicationXml>
+					<applicationXml>${project.build.directory}/application.xml</applicationXml>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
 				</configuration>
 			</plugin>
 		</plugins>
