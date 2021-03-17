@@ -1,6 +1,7 @@
 package br.com.ideiasportsgroup.rest.beans;
 
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -13,6 +14,7 @@ import javax.ws.rs.core.Response;
 import br.com.ideiasportsgroup.rest.application.MediaTypeConstantes;
 import br.com.ideiasportsgroup.rest.application.TesteLeoLocal;
 
+@Stateless
 @Path("inscricao")
 public class RestInscricao implements IRestInscricao {
 
