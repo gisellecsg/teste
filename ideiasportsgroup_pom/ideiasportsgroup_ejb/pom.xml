@@ -13,14 +13,6 @@
 	</parent>
 
 	<dependencies>
-		<!-- <dependency> <groupId>org.jboss.spec.javax.ejb</groupId> <artifactId>jboss-ejb-api_3.2_spec</artifactId> 
-			<scope>provided</scope> </dependency> -->
-		<!-- <dependency> <groupId>jakarta.ejb</groupId> <artifactId>jakarta.ejb-api</artifactId> 
-			</dependency> -->
-		<!-- <dependency> <groupId>org.jboss.spec.javax.ejb</groupId> <artifactId>jboss-ejb-api_3.2_spec</artifactId> 
-			<scope>provided</scope> </dependency> <dependency> <groupId>org.jboss.spec.javax.xml.bind</groupId> 
-			<artifactId>jboss-jaxb-api_2.3_spec</artifactId> <scope>provided</scope> 
-			</dependency> -->
 		<dependency>
 			<groupId>jakarta.platform</groupId>
 			<artifactId>jakarta.jakartaee-api</artifactId>
@@ -28,7 +20,6 @@
 	</dependencies>
 
 	<build>
-		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-ejb-plugin</artifactId>

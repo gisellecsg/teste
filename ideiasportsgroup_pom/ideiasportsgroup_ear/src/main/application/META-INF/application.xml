@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/application_8.xsd"
+	version="8">
+	<display-name>ideiasportsgroup_ear</display-name>
+	<module>
+		<ejb>br.com.ideiasportsgroup-ideiasportsgroup_ejb-0.0.1-SNAPSHOT.jar</ejb>
+	</module>
+	<module>
+		<ejb>br.com.ideiasportsgroup-ideiasportsgroup_rest-0.0.1-SNAPSHOT.jar</ejb>
+	</module>
+	<module>
+		<web>
+			<web-uri>br.com.ideiasportsgroup-ideiasportsgroup_web-0.0.1-SNAPSHOT.war</web-uri>
+			<context-root>ideiasportsgroup_web</context-root>
+		</web>
+	</module>
+</application>
