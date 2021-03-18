@@ -39,8 +39,25 @@
 				<configuration>
 					<version>8</version>
 					<finalName>${project.artifactId}-${project.version}</finalName>
+					<modules>
+						<ejbModule>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>ideiasportsgroup_ejb</artifactId>
+							<bundleFileName>ideiasportsgroup_ejb-0.0.1-SNAPSHOT.jar</bundleFileName>
+						</ejbModule>
+						<ejbModule>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>ideiasportsgroup_rest</artifactId>
+							<bundleFileName>ideiasportsgroup_rest-0.0.1-SNAPSHOT.jar</bundleFileName>
+						</ejbModule>
+						<webModule>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>ideiasportsgroup_web</artifactId>
+							<bundleFileName>ideiasportsgroup_web-0.0.1-SNAPSHOT.war</bundleFileName>
+						</webModule>
+					</modules>
 					<generateApplicationXml>true</generateApplicationXml>
-					<applicationXml>${project.build.directory}/application.xml</applicationXml>
+					<!-- <applicationXml>${project.build.directory}/application.xml</applicationXml> -->
 					<defaultLibBundleDir>lib</defaultLibBundleDir>
 				</configuration>
 			</plugin>
