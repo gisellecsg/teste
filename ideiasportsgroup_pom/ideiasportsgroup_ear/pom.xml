@@ -20,11 +20,6 @@
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>ideiasportsgroup_rest</artifactId>
-			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>${project.groupId}</groupId>
 			<artifactId>ideiasportsgroup_web</artifactId>
 			<type>war</type>
 		</dependency>

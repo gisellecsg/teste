@@ -23,12 +23,6 @@
 			<type>ejb</type>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>ideiasportsgroup_rest</artifactId>
-			<type>jar</type>
-			<scope>provided</scope>
-		</dependency>
 	</dependencies>
 
 	<build>

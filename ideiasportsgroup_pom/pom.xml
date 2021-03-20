@@ -9,7 +9,6 @@
 
 	<modules>
 		<module>ideiasportsgroup_ejb</module>
-		<module>ideiasportsgroup_rest</module>
 		<module>ideiasportsgroup_web</module>
 		<module>ideiasportsgroup_ear</module>
 	</modules>
@@ -39,12 +38,6 @@
 				<artifactId>ideiasportsgroup_ejb</artifactId>
 				<version>${project.version}</version>
 				<type>ejb</type>
-			</dependency>
-			<dependency>
-				<groupId>${project.groupId}</groupId>
-				<artifactId>ideiasportsgroup_rest</artifactId>
-				<version>${project.version}</version>
-				<type>jar</type>
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
