@@ -1,4 +1,4 @@
-package br.com.ideiasportsgroup.ejb;
+package br.com.ideiasportsgroup.ejb.domain;
 
 import javax.ejb.Stateless;
 

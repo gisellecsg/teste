@@ -10,13 +10,13 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
-import br.com.ideiasportsgroup.ejb.TesteLeo2;
+import br.com.ideiasportsgroup.ejb.domain.TesteLeo2;
 import br.com.ideiasportsgroup.web.restfull.application.MediaTypeConstantes;
 
 @Path("inscricaoa")
 public class RestInscricao implements IRestInscricao {
 
-	@EJB(lookup = "java:app/br.com.ideiasportsgroup-ideiasportsgroup_ejb-0.0.1-SNAPSHOT/TesteLeo2!br.com.ideiasportsgroup.ejb.TesteLeo2")
+	@EJB(lookup = "java:app/br.com.ideiasportsgroup-ideiasportsgroup_ejb-0.0.1-SNAPSHOT/TesteLeo2!br.com.ideiasportsgroup.ejb.domain.TesteLeo2")
 	TesteLeo2 testeLeo2;
 
 	@GET
