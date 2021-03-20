@@ -1,4 +1,4 @@
-package br.com.ideiasportsgroup.rest2.application;
+package br.com.ideiasportsgroup.web.restfull.application;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -6,7 +6,7 @@ import java.util.Set;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
-import br.com.ideiasportsgroup.rest2.beans.RestInscricao;
+import br.com.ideiasportsgroup.web.restfull.beans.RestInscricao;
 
 @ApplicationPath("/rest")
 public class RestApplication extends Application {

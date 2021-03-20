@@ -1,4 +1,4 @@
-package br.com.ideiasportsgroup.rest2.beans;
+package br.com.ideiasportsgroup.web.restfull.beans;
 
 import javax.ws.rs.core.Response;
 
