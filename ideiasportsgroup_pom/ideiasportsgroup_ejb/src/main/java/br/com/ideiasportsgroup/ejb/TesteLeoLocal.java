@@ -1,4 +1,4 @@
-package br.com.ideiasportsgroup.rest.application;
+package br.com.ideiasportsgroup.ejb;
 
 import javax.ejb.Local;
 
