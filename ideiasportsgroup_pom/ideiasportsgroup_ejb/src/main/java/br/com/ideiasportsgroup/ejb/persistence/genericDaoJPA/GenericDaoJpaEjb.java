@@ -1,4 +1,4 @@
-package br.com.ideiasportsgroup.ejb.persistence.genericJPA;
+package br.com.ideiasportsgroup.ejb.persistence.genericDaoJPA;
 
 import java.util.List;
 import java.util.Map;

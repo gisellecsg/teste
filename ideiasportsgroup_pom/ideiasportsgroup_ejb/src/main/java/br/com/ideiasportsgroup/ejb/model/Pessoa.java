@@ -95,4 +95,56 @@ public class Pessoa implements Serializable {
 		this.email = email;
 	}
 
+	public static class Builder {
+		private String nome;
+		private String rg;
+		private String cpf;
+		private LocalDate dataNascimento;
+		private String telefone;
+		private String email;
+
+		public Builder nome(String nome) {
+			this.nome(nome);
+			return this;
+		}
+
+		public Builder rg(String rg) {
+			this.rg(rg);
+			return this;
+		}
+
+		public Builder cpf(String cpf) {
+			this.cpf(cpf);
+			return this;
+		}
+
+		public Builder dataNascimento(LocalDate dataNascimento) {
+			this.dataNascimento(dataNascimento);
+			return this;
+		}
+
+		public Builder telefone(String telefone) {
+			this.telefone(telefone);
+			return this;
+		}
+
+		public Builder email(String email) {
+			this.email(email);
+			return this;
+		}
+
+		public Pessoa build() {
+			return new Pessoa(this);
+		}
+	}
+
+	private Pessoa(Builder builder) {
+		this.nome = builder.nome;
+		this.rg = builder.rg;
+		this.cpf = builder.cpf;
+		this.dataNascimento = builder.dataNascimento;
+		this.telefone = builder.telefone;
+		this.email = builder.email;
+	}
+
 }
