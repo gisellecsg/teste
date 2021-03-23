@@ -95,7 +95,21 @@ public class Pessoa implements Serializable {
 		this.email = email;
 	}
 
-	public static class Builder {
+	/* Builder */
+	private Pessoa(PessoaBuilder pessoaBuilder) {
+		this.nome = pessoaBuilder.nome;
+		this.rg = pessoaBuilder.rg;
+		this.cpf = pessoaBuilder.cpf;
+		this.dataNascimento = pessoaBuilder.dataNascimento;
+		this.telefone = pessoaBuilder.telefone;
+		this.email = pessoaBuilder.email;
+	}
+
+	public static PessoaBuilder builder() {
+		return new PessoaBuilder();
+	}
+
+	public static class PessoaBuilder {
 		private String nome;
 		private String rg;
 		private String cpf;
@@ -103,48 +117,39 @@ public class Pessoa implements Serializable {
 		private String telefone;
 		private String email;
 
-		public Builder nome(String nome) {
-			this.nome(nome);
+		public PessoaBuilder comNome(String nome) {
+			this.nome = nome;
 			return this;
 		}
 
-		public Builder rg(String rg) {
-			this.rg(rg);
+		public PessoaBuilder comRg(String rg) {
+			this.rg = rg;
 			return this;
 		}
 
-		public Builder cpf(String cpf) {
-			this.cpf(cpf);
+		public PessoaBuilder comCpf(String cpf) {
+			this.cpf = cpf;
 			return this;
 		}
 
-		public Builder dataNascimento(LocalDate dataNascimento) {
-			this.dataNascimento(dataNascimento);
+		public PessoaBuilder nasceuNaData(LocalDate dataNascimento) {
+			this.dataNascimento = dataNascimento;
 			return this;
 		}
 
-		public Builder telefone(String telefone) {
-			this.telefone(telefone);
+		public PessoaBuilder comTelefone(String telefone) {
+			this.telefone = telefone;
 			return this;
 		}
 
-		public Builder email(String email) {
-			this.email(email);
+		public PessoaBuilder comEmail(String email) {
+			this.email = email;
 			return this;
 		}
 
 		public Pessoa build() {
 			return new Pessoa(this);
 		}
-	}
-
-	private Pessoa(Builder builder) {
-		this.nome = builder.nome;
-		this.rg = builder.rg;
-		this.cpf = builder.cpf;
-		this.dataNascimento = builder.dataNascimento;
-		this.telefone = builder.telefone;
-		this.email = builder.email;
 	}
 
 }

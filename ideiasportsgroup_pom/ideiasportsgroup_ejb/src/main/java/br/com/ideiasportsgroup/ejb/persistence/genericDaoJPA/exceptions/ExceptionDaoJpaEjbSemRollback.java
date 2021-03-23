@@ -1,4 +1,4 @@
-package br.com.ideiasportsgroup.ejb.persistence.genericDaoJPA;
+package br.com.ideiasportsgroup.ejb.persistence.genericDaoJPA.exceptions;
 
 import javax.ejb.ApplicationException;
 

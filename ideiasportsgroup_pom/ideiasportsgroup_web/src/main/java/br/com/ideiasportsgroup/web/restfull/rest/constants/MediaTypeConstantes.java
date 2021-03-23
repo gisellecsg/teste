@@ -1,4 +1,4 @@
-package br.com.ideiasportsgroup.web.restfull.application;
+package br.com.ideiasportsgroup.web.restfull.rest.constants;
 
 import javax.ws.rs.core.MediaType;
 

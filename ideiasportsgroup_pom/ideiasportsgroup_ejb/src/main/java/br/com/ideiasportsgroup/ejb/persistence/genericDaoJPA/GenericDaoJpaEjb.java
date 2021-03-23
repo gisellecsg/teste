@@ -18,6 +18,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import br.com.ideiasportsgroup.ejb.persistence.enumeration.ErroEnumPersistence;
+import br.com.ideiasportsgroup.ejb.persistence.genericDaoJPA.exceptions.ExceptionDaoJpaEjb;
 
 public abstract class GenericDaoJpaEjb<T> {
 
@@ -192,11 +193,11 @@ public abstract class GenericDaoJpaEjb<T> {
 		return this.resultList("SELECT e FROM " + this.getEntityName() + " e ", null);
 	}
 
-	protected List<T> getAllOrderByAsc(String atributo) {
+	protected List<T> getAllOrderAscBy(String atributo) {
 		return this.resultList("SELECT e FROM " + this.getEntityName() + " e ORDER BY e." + atributo, null);
 	}
 
-	protected List<T> getAllOrderByDesc(String atributo) {
+	protected List<T> getAllOrderDescBy(String atributo) {
 		return this.resultList("SELECT e FROM " + this.getEntityName() + " e ORDER BY e." + atributo + " DESC", null);
 	}
 
@@ -315,5 +316,11 @@ public abstract class GenericDaoJpaEjb<T> {
 					+ ErroEnumPersistence.NAO_CONHECIDO_PERSISTENCIA.toString(), e);
 		}
 	}
-
+	/*
+	 * new ProcessTemplateException() { public void doProcess(PessoaService
+	 * pessoaService, Pessoa pessoa) throws ExceptionDaoJpaEjb {
+	 * pessoaService.cadastrar(pessoa);
+	 * Response.ok().entity("Cadastro com sucesso!").build(); }
+	 * }.process(this.pessoaService, pessoa);
+	 */
 }

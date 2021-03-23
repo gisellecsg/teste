@@ -6,16 +6,16 @@ import java.util.Set;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
-import br.com.ideiasportsgroup.web.restfull.beans.RestInscricao;
+import br.com.ideiasportsgroup.web.restfull.rest.beans.PessoaRest;
 
 @ApplicationPath("/rest")
-public class RestApplication extends Application {
+public class ApplicationRest extends Application {
 
 	private final Set<Object> singletons = new HashSet<Object>();
 	private final Set<Class<?>> empty = new HashSet<Class<?>>();
 
-	public RestApplication() {
-		empty.add(RestInscricao.class);
+	public ApplicationRest() {
+		empty.add(PessoaRest.class);
 	}
 
 	@Override
