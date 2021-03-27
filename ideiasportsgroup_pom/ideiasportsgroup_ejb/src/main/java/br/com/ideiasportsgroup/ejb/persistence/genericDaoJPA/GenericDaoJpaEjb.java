@@ -14,8 +14,7 @@ import javax.persistence.NonUniqueResultException;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 
 import br.com.ideiasportsgroup.ejb.persistence.enumeration.ErroEnumPersistence;
 import br.com.ideiasportsgroup.ejb.persistence.genericDaoJPA.exceptions.ExceptionDaoJpaEjb;
@@ -27,7 +26,7 @@ public abstract class GenericDaoJpaEjb<T> {
 	@Inject
 	private EntityManager entityManager;
 
-	private final Logger logger = LogManager.getLogger(this.getClass());
+	protected final Logger logger = Logger.getLogger(this.getClass().getSuperclass());
 
 	public GenericDaoJpaEjb(Class<T> persistentEntityClass) {
 		this.entityClass = persistentEntityClass;
@@ -39,6 +38,7 @@ public abstract class GenericDaoJpaEjb<T> {
 	protected void persist(T objeto) throws ExceptionDaoJpaEjb {
 
 		try {
+			logger.warn("teste_GenericDaoJpaEjb");
 			this.entityManager.joinTransaction();
 			this.entityManager.persist(objeto);
 		} catch (PersistenceException t) {
@@ -126,7 +126,8 @@ public abstract class GenericDaoJpaEjb<T> {
 			return (T) query.getSingleResult();
 		} catch (NoResultException e1) {
 			this.logger.error(ErroEnumPersistence.NO_RESULT.toString() + ";" + this.entityClass, e1);
-			throw new ExceptionDaoJpaEjb(String.valueOf(ErroEnumPersistence.NO_RESULT.getCodigo()) + ";" + this.entityClass, e1);
+			throw new ExceptionDaoJpaEjb(
+					String.valueOf(ErroEnumPersistence.NO_RESULT.getCodigo()) + ";" + this.entityClass, e1);
 		} catch (NonUniqueResultException e2) {
 			this.logger.error(ErroEnumPersistence.MORE_THAN_ONE_RESULT.toString() + ";" + this.entityClass, e2);
 			throw new ExceptionDaoJpaEjb(
@@ -150,7 +151,8 @@ public abstract class GenericDaoJpaEjb<T> {
 			return query.getSingleResult();
 		} catch (NoResultException e1) {
 			this.logger.error(ErroEnumPersistence.NO_RESULT.toString() + ";" + this.entityClass, e1);
-			throw new ExceptionDaoJpaEjb(String.valueOf(ErroEnumPersistence.NO_RESULT.getCodigo()) + ";" + this.entityClass, e1);
+			throw new ExceptionDaoJpaEjb(
+					String.valueOf(ErroEnumPersistence.NO_RESULT.getCodigo()) + ";" + this.entityClass, e1);
 		} catch (NonUniqueResultException e2) {
 			this.logger.error(ErroEnumPersistence.MORE_THAN_ONE_RESULT.toString() + ";" + this.entityClass, e2);
 			throw new ExceptionDaoJpaEjb(
@@ -252,7 +254,8 @@ public abstract class GenericDaoJpaEjb<T> {
 
 					flag = false;
 					this.logger.error(ErroEnumPersistence.DUPLICATE_ENTRY.toString(), e);
-					throw new ExceptionDaoJpaEjb(String.valueOf(ErroEnumPersistence.DUPLICATE_ENTRY.getCodigo()) + "; ", e);
+					throw new ExceptionDaoJpaEjb(String.valueOf(ErroEnumPersistence.DUPLICATE_ENTRY.getCodigo()) + "; ",
+							e);
 
 				} else {
 
@@ -263,42 +266,38 @@ public abstract class GenericDaoJpaEjb<T> {
 						// String valorDuplicado =
 						// mensagem.substring(mensagem.lastIndexOf("("));
 						flag = false;
-						this.logger.error(ErroEnumPersistence.VIOLACAO_UNIQUEKEY.toString() + ";" + campoDuplicado,
-								e);
-						throw new ExceptionDaoJpaEjb(
-								String.valueOf(ErroEnumPersistence.VIOLACAO_UNIQUEKEY.getCodigo()) + ";" + campoDuplicado, e);
+						this.logger.error(ErroEnumPersistence.VIOLACAO_UNIQUEKEY.toString() + ";" + campoDuplicado, e);
+						throw new ExceptionDaoJpaEjb(String.valueOf(ErroEnumPersistence.VIOLACAO_UNIQUEKEY.getCodigo())
+								+ ";" + campoDuplicado, e);
 
 					} else {
-						if (t.getMessage().startsWith(ErroEnumPersistence.DELETE_CONFLICTED_REFERENCE_CONSTRAINT.getDescricao())) {
+						if (t.getMessage().startsWith(
+								ErroEnumPersistence.DELETE_CONFLICTED_REFERENCE_CONSTRAINT.getDescricao())) {
 
 							String mensagem = t.getMessage();
 							String tabelaReferencia = mensagem.substring(mensagem.indexOf("\", table \"dbo.") + 14,
 									mensagem.length());
 							flag = false;
-							this.logger.error(
-									ErroEnumPersistence.DELETE_CONFLICTED_REFERENCE_CONSTRAINT.toString() + ";" + tabelaReferencia,
-									e);
-							throw new ExceptionDaoJpaEjb(
-									String.valueOf(ErroEnumPersistence.DELETE_CONFLICTED_REFERENCE_CONSTRAINT.getCodigo()) + ";"
-											+ tabelaReferencia,
-									e);
+							this.logger.error(ErroEnumPersistence.DELETE_CONFLICTED_REFERENCE_CONSTRAINT.toString()
+									+ ";" + tabelaReferencia, e);
+							throw new ExceptionDaoJpaEjb(String
+									.valueOf(ErroEnumPersistence.DELETE_CONFLICTED_REFERENCE_CONSTRAINT.getCodigo())
+									+ ";" + tabelaReferencia, e);
 
 						} else {
 
-							if (t.getMessage()
-									.startsWith(ErroEnumPersistence.INSERT_CONFLICTED_REFERENCE_CONSTRAINT.getDescricao())) {
+							if (t.getMessage().startsWith(
+									ErroEnumPersistence.INSERT_CONFLICTED_REFERENCE_CONSTRAINT.getDescricao())) {
 
 								String mensagem = t.getMessage();
 								String tabelaReferencia = mensagem.substring(mensagem.indexOf("\", table \"dbo.") + 14,
 										mensagem.length());
 								flag = false;
-								this.logger
-										.error(ErroEnumPersistence.INSERT_CONFLICTED_REFERENCE_CONSTRAINT.toString() + ";"
-												+ tabelaReferencia, e);
-								throw new ExceptionDaoJpaEjb(
-										String.valueOf(ErroEnumPersistence.INSERT_CONFLICTED_REFERENCE_CONSTRAINT.getCodigo())
-												+ ";" + tabelaReferencia,
-										e);
+								this.logger.error(ErroEnumPersistence.INSERT_CONFLICTED_REFERENCE_CONSTRAINT.toString()
+										+ ";" + tabelaReferencia, e);
+								throw new ExceptionDaoJpaEjb(String
+										.valueOf(ErroEnumPersistence.INSERT_CONFLICTED_REFERENCE_CONSTRAINT.getCodigo())
+										+ ";" + tabelaReferencia, e);
 
 							}
 
@@ -312,8 +311,8 @@ public abstract class GenericDaoJpaEjb<T> {
 
 		if (flag) {
 			this.logger.error(ErroEnumPersistence.NAO_CONHECIDO_PERSISTENCIA.toString(), e);
-			throw new ExceptionDaoJpaEjb(String.valueOf(ErroEnumPersistence.NAO_CONHECIDO_PERSISTENCIA.getCodigo()) + ";"
-					+ ErroEnumPersistence.NAO_CONHECIDO_PERSISTENCIA.toString(), e);
+			throw new ExceptionDaoJpaEjb(String.valueOf(ErroEnumPersistence.NAO_CONHECIDO_PERSISTENCIA.getCodigo())
+					+ ";" + ErroEnumPersistence.NAO_CONHECIDO_PERSISTENCIA.toString(), e);
 		}
 	}
 	/*

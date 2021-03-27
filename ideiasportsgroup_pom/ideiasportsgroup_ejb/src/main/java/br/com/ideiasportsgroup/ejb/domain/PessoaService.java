@@ -12,8 +12,6 @@ import br.com.ideiasportsgroup.ejb.persistence.genericDaoJPA.exceptions.Exceptio
 @Stateless
 public class PessoaService {
 
-	// private final Logger logger = LogManager.getLogger(this.getClass());
-
 	@EJB
 	PessoaDao pessoaDao;
 
@@ -24,8 +22,8 @@ public class PessoaService {
 	public Pessoa obterPorNome(String nome) throws ExceptionDaoJpaEjb {
 		return this.pessoaDao.getByNome(nome);
 	}
-	
-	public List<Pessoa> obterPorNomeOrdenandoPorAsc(){
+
+	public List<Pessoa> obterPorNomeOrdenandoPorAsc() {
 		return this.pessoaDao.getAllOrderAscBy("nome");
 	}
 
