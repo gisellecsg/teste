@@ -14,7 +14,8 @@ import javax.persistence.NonUniqueResultException;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import br.com.ideiasportsgroup.ejb.persistence.enumeration.ErroEnumPersistence;
 import br.com.ideiasportsgroup.ejb.persistence.genericDaoJPA.exceptions.ExceptionDaoJpaEjb;
@@ -26,7 +27,7 @@ public abstract class GenericDaoJpaEjb<T> {
 	@Inject
 	private EntityManager entityManager;
 
-	protected final Logger logger = Logger.getLogger(this.getClass().getSuperclass());
+	private final Logger logger = LogManager.getLogger(this.getClass().getSuperclass());
 
 	public GenericDaoJpaEjb(Class<T> persistentEntityClass) {
 		this.entityClass = persistentEntityClass;
@@ -38,7 +39,6 @@ public abstract class GenericDaoJpaEjb<T> {
 	protected void persist(T objeto) throws ExceptionDaoJpaEjb {
 
 		try {
-			logger.warn("teste_GenericDaoJpaEjb");
 			this.entityManager.joinTransaction();
 			this.entityManager.persist(objeto);
 		} catch (PersistenceException t) {
