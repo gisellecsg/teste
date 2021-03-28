@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Configuration status="trace">
+<!-- TRACE, DEBUG, INFO, WARN, ERROR, and FATAL -->
+
+<Configuration status="WARN"
+	xmlns="http://logging.apache.org/log4j/2.0/config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://logging.apache.org/log4j/2.0/config 
+           https://raw.githubusercontent.com/apache/logging-log4j2/master/log4j-core/src/main/resources/Log4j-config.xsd">
 
 	<Appenders>
 		<Console name="Console" target="SYSTEM_OUT">
@@ -10,10 +16,12 @@
 
 		<!-- for GlassFish v4.1 the logs will be in the domains directory -->
 		<RollingFile name="persistenceRollingFile"
-			fileName="../standalone/log/ideiasportsgroup/ideiasportsgroup_persistence.log" append="true"
-			filePattern="../standalone/log/ideiasportsgroup/$${date:yyyy-MM}/ideiasportsgroup_persistence-%d{yyyy-MM-dd}-%i.log.zip" ignoreExceptions="false">
+			fileName="../standalone/log/ideiasportsgroup/ideiasportsgroup_persistence.log"
+			append="true"
+			filePattern="../standalone/log/ideiasportsgroup/$${date:yyyy-MM}/ideiasportsgroup_persistence-%d{yyyy-MM-dd}-%i.log.zip"
+			ignoreExceptions="false">
 			<PatternLayout
-				pattern="%d{yyyy-MM-dd EEE HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
+				pattern="%d{yyyy-MM-dd EEE HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n" />
 			<Policies>
 				<OnStartupTriggeringPolicy />
 				<TimeBasedTriggeringPolicy />
@@ -23,10 +31,11 @@
 
 		<!-- for GlassFish v4.1 the logs will be in the domains directory -->
 		<RollingFile name="domainRollingFile"
-			fileName="../standalone/log/ideiasportsgroup/ideiasportsgroup_domain.log" append="true"
-			ignoreExceptions="false" filePattern="../standalone/log/ideiasportsgroup/$${date:yyyy-MM}/ideiasportsgroup_domain-%d{yyyy-MM-dd}-%i.log.zip">
+			fileName="../standalone/log/ideiasportsgroup/ideiasportsgroup_domain.log"
+			append="true" ignoreExceptions="false"
+			filePattern="../standalone/log/ideiasportsgroup/$${date:yyyy-MM}/ideiasportsgroup_domain-%d{yyyy-MM-dd}-%i.log.zip">
 			<PatternLayout
-				pattern="%d{yyyy-MM-dd EEE HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
+				pattern="%d{yyyy-MM-dd EEE HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n" />
 			<Policies>
 				<OnStartupTriggeringPolicy />
 				<TimeBasedTriggeringPolicy />
@@ -41,12 +50,12 @@
 		</Root>
 		<Logger name="br.com.ideiasportsgroup.ejb.persistence"
 			level="TRACE" additivity="false">
-			<AppenderRef ref="Console" />
+			<!-- <AppenderRef ref="Console" /> -->
 			<AppenderRef ref="persistenceRollingFile"></AppenderRef>
 		</Logger>
 		<Logger name="br.com.ideiasportsgroup.ejb.domain" level="TRACE"
 			additivity="false">
-			<AppenderRef ref="Console" />
+			<!-- <AppenderRef ref="Console" /> -->
 			<AppenderRef ref="domainRollingFile" />
 		</Logger>
 	</Loggers>

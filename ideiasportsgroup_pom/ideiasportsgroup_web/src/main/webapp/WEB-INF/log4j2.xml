@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Configuration status="trace">
+<!-- TRACE, DEBUG, INFO, WARN, ERROR, and FATAL -->
+
+<Configuration status="WARN"
+	xmlns="http://logging.apache.org/log4j/2.0/config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://logging.apache.org/log4j/2.0/config 
+           https://raw.githubusercontent.com/apache/logging-log4j2/master/log4j-core/src/main/resources/Log4j-config.xsd">
 
 	<Appenders>
 		<Console name="Console" target="SYSTEM_OUT">
@@ -10,7 +16,8 @@
 
 		<!-- for GlassFish v4.1 the logs will be in the domains directory -->
 		<RollingFile name="restRollingFile"
-			fileName="../standalone/log/ideiasportsgroup/ideiasportsgroup_rest.log" append="true"
+			fileName="../standalone/log/ideiasportsgroup/ideiasportsgroup_rest.log"
+			append="true"
 			filePattern="../standalone/log/ideiasportsgroup/$${date:yyyy-MM}/ideiasportsgroup_rest-%d{yyyy-MM-dd}-%i.log.zip"
 			ignoreExceptions="false">
 			<PatternLayout
@@ -24,12 +31,13 @@
 	</Appenders>
 
 	<Loggers>
+		!-- TRACE, DEBUG, INFO, WARN, ERROR, and FATAL -->
 		<Root level="TRACE">
 			<AppenderRef ref="Console" level="TRACE" />
 		</Root>
 		<Logger name="br.com.ideiasportsgroup.web.restfull.rest.beans"
 			level="TRACE" additivity="false">
-			<AppenderRef ref="Console" />
+			<!-- <AppenderRef ref="Console" /> -->
 			<AppenderRef ref="restRollingFile" />
 		</Logger>
 	</Loggers>
